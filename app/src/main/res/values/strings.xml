@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Drive Test</string>
     <string name="WelcomeText">Drive Test</string>
+    <string name="Disclaimer">Disclaimer</string>
+    <string name="AcceptDisclaimer">I have read and accept the terms and conditions</string>
 
 </resources>
