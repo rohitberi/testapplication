@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Drive Test</string>
     <string name="WelcomeText">Drive Test</string>
-    <string name="Disclaimer">Disclaimer</string>
+    <string name="Disclaimer">DrivingTest.ca is an online driving test practice site that serves all provinces and territories in Canada. Advance through the practice tests at your own pace on any computer, tablet or mobile phone with internet access. While these tests are not the same as the actual ones you will be taking, they can give you a good idea of what to expect. It is all FREE!</string>
     <string name="AcceptDisclaimer">I have read and accept the terms and conditions</string>
+    <string name="Accept">Accept</string>
+    <string name="Decline">Decline</string>
 
 </resources>
