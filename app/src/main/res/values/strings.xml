@@ -6,4 +6,11 @@
     <string name="Accept">Accept</string>
     <string name="Decline">Decline</string>
 
+    <string name="btnMenu01">M-1 Motorcycle</string>
+    <string name="btnMenu02">M-2 Motorcycle</string>
+    <string name="btnMenu03">G-1 Car</string>
+    <string name="btnMenu04">G-2 Car</string>
+    <string name="btnMenu05">FAQs</string>
+    <string name="btnMenu06">Ministry Links</string>
+
 </resources>

@@ -1,5 +1,6 @@
 package com.example.berirohit.testapplication;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,14 +35,32 @@ public class disclaimer extends AppCompatActivity {
         public void onClick(View view) {
             switch (view.getId()) {
                 case R.id.btnAccept:
+                    if (chkDisclaimer.isChecked()){
+                        Log.e("INFORMATION", "chkDisclaimer:" + chkDisclaimer.isChecked());
+                        Intent intent = new Intent(disclaimer.this, menu.class);
+//                    intent.putExtra("key", "value");
+                    disclaimer.this.startActivity(intent);
+                }else {
+                        Log.e("INFORMATION", "chkDisclaimer:" + chkDisclaimer.isChecked());
+                    }
+
                     Log.e("INFORMATION", "btn ACCEPT Clicked");
 //                    Toast.makeText(this,"test", Toast.LENGTH_LONG).show();
                     break;
                 case R.id.btnDecline:
                     Log.e("INFORMATION", "btn DECLINE Clicked");
-//                    Toast.makeText(this,"test", Toast.LENGTH_LONG).show();
+                    CloseFragment();
+//                    Intent intent = new Intent(welcome.this, disclaimer.class);
+//                    intent.putExtra("key", "value");
+//                    welcome.this.startActivity(intent);
                     break;
             }
+        }
+
+        private void CloseFragment(){
+            Log.e("INFORMATION","Entering function CloseFragment");
+//            getActivity().getFragmentManager().beginTransaction().remove(this).commit();
+            //getFragmentManager().beginTransaction().remove(disclaimer.class).commit();
         }
     }
 }

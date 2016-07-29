@@ -15,7 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".disclaimer"></activity>
+        <activity android:name=".disclaimer" />
+        <activity android:name=".menu" />
+        <activity android:name=".m1questions"></activity>
     </application>
 
 </manifest>
