@@ -43,29 +43,48 @@ public class menu extends AppCompatActivity {
 
         @Override
         public void onClick(View view) {
+            Intent intent;
             switch (view.getId()){
                 case R.id.btnMenuOption1:
                     Log.e("INFORMATION", "Menu Option 1 Clicked");
+                    intent = new Intent(menu.this, m1questions.class);
+//                    intent.putExtra("key", "value");
+                    menu.this.startActivity(intent);
                     break;
 
                 case R.id.btnMenuOption2:
                     Log.e("INFORMATION", "Menu Option 2 Clicked");
+//                    intent = new Intent(menu.this, m2questions.class);
+//                    intent.putExtra("key", "value");
+//                    menu.this.startActivity(intent);
                     break;
 
                 case R.id.btnMenuOption3:
                     Log.e("INFORMATION", "Menu Option 3 Clicked");
+//                    intent = new Intent(menu.this, m2questions.class);
+//                    intent.putExtra("key", "value");
+//                    menu.this.startActivity(intent);
                     break;
 
                 case R.id.btnMenuOption4:
                     Log.e("INFORMATION", "Menu Option 4 Clicked");
+//                    intent = new Intent(menu.this, m2questions.class);
+//                    intent.putExtra("key", "value");
+//                    menu.this.startActivity(intent);
                     break;
 
                 case R.id.btnMenuOption5:
                     Log.e("INFORMATION", "Menu Option 5 Clicked");
+//                    intent = new Intent(menu.this, m2questions.class);
+//                    intent.putExtra("key", "value");
+//                    menu.this.startActivity(intent);
                     break;
 
                 case R.id.btnMenuOption6:
                     Log.e("INFORMATION", "Menu Option 6 Clicked");
+//                    intent = new Intent(menu.this, m2questions.class);
+//                    intent.putExtra("key", "value");
+//                    menu.this.startActivity(intent);
                     break;
             }
 
