@@ -13,4 +13,59 @@
     <string name="btnMenu05">FAQs</string>
     <string name="btnMenu06">Ministry Links</string>
 
+
+    <!--<string-array name="m1Questions">-->
+        <!--<item>Please select the answer that best describes the picture 1.</item>-->
+        <!--<item>Please select the answer that best describes the picture 2.</item>-->
+        <!--<item>Please select the answer that best describes the picture 3.</item>-->
+        <!--<item>Please select the answer that best describes the picture 4.</item>-->
+        <!--<item>Please select the answer that best describes the picture 5.</item>-->
+    <!--</string-array>-->
+
+    <string-array name="m1Q1">
+        <item>Please select the answer that best describes the picture 1.</item>
+        <item>A</item>
+        <item>Road Work Ahead</item>
+        <item>A construction sign replacing flagman on duty</item>
+        <item>Regulatory sign-reduce speed</item>
+        <item>School Area Ahead</item>
+    </string-array>
+
+    <string-array name="m1Q2">
+        <item>Please select the answer that best describes the picture 2.</item>
+        <item>D</item>
+        <item>You are approaching a hospital zone</item>
+        <item>Pedestrian crosswalk ahead</item>
+        <item>You are approaching a 4-way intersection</item>
+        <item>Railway crossing ahead</item>
+    </string-array>
+
+    <string-array name="m1Q3">
+        <item>Please select the answer that best describes the picture 3.</item>
+        <item>B</item>
+        <item>Hidden intersection ahead</item>
+        <item>Do not turn left at the intersection</item>
+        <item>You are approaching a traffic island</item>
+        <item>Do not turn right at the intersection</item>
+    </string-array>
+
+    <string-array name="m1Q4">
+        <item>Please select the answer that best describes the picture 4.</item>
+        <item>C</item>
+        <item>Road under construction</item>
+        <item>Divided highway ends</item>
+        <item>The road ahead is split into two separate roads by a median</item>
+        <item>Narrow bridge ahead</item>
+    </string-array>
+
+    <string-array name="m1Q5">
+        <item>Please select the answer that best describes the picture 1.</item>
+        <item>A</item>
+        <item>Keep to the right of the traffic island</item>
+        <item>Winding road ahead</item>
+        <item>Pass other traffic on the right</item>
+        <item>Road turns right then left</item>
+    </string-array>
+
+
 </resources>
