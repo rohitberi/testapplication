@@ -16,9 +16,7 @@ import android.widget.Toast;
 public class m1questions extends AppCompatActivity {
 
     classM1Questions oQuestions;
-    ImageView imgPrevQuestion;
-    ImageView imgNextQuestion;
-    ImageView imgQuestion;
+    ImageView imgPrevQuestion, imgNextQuestion, imgQuestion;
     TextView txtbottom;
     TextView txtQuestionM1;
     RadioButton rbtnAnswer1, rbtnAnswer2, rbtnAnswer3, rbtnAnswer4;
@@ -32,9 +30,6 @@ public class m1questions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_m1questions);
 
-        oQuestions = new classM1Questions();
-        oQuestions.firstQuestion();
-
         imgPrevQuestion = (ImageView) findViewById(R.id.imgPrevQuestion);
         imgNextQuestion = (ImageView) findViewById(R.id.imgNextQuestion);
         imgQuestion = (ImageView) findViewById(R.id.imgQuestionM1);
@@ -44,7 +39,6 @@ public class m1questions extends AppCompatActivity {
         rbtnAnswer2 = (RadioButton) findViewById(R.id.rbtnAnswer2);
         rbtnAnswer3 = (RadioButton) findViewById(R.id.rbtnAnswer3);
         rbtnAnswer4 = (RadioButton) findViewById(R.id.rbtnAnswer4);
-//        rgrpAnswers = (RadioGroup) findViewById(R.id.rgrpAnswers);
 
         imgPrevQuestion.setOnClickListener(new OnImageButtonClick());
         imgNextQuestion.setOnClickListener(new OnImageButtonClick());
@@ -53,10 +47,14 @@ public class m1questions extends AppCompatActivity {
         rbtnAnswer2.setOnClickListener(new OnImageButtonClick());
         rbtnAnswer3.setOnClickListener(new OnImageButtonClick());
         rbtnAnswer4.setOnClickListener(new OnImageButtonClick());
+
+        oQuestions = new classM1Questions();
+        oQuestions.firstQuestion();
+        fnRefreshUI();
+
     }
 
     public class OnImageButtonClick implements View.OnClickListener{
-
         @Override
         public void onClick(View view) {
             Boolean bContinue = false;
@@ -65,14 +63,15 @@ public class m1questions extends AppCompatActivity {
                     Log.i(LOGTYPE, "case: imgPrevQuestion");
                     bContinue = oQuestions.previousQuestion();
                     if (bContinue == true){
-                        txtQuestionM1.setText(oQuestions.get_sQuestion());
-                        sAnswer = oQuestions.get_sAnswer();
-                        imgQuestion.setImageResource(oQuestions.get_iImgQuestion());
-                        rbtnAnswer1.setText(oQuestions.get_sAnswer1());
-                        rbtnAnswer2.setText(oQuestions.get_sAnswer2());
-                        rbtnAnswer3.setText(oQuestions.get_sAnswer3());
-                        rbtnAnswer4.setText(oQuestions.get_sAnswer4());
                         // set all question text and answers
+                        fnRefreshUI();
+//                        txtQuestionM1.setText(oQuestions.get_sQuestion());
+//                        sAnswer = oQuestions.get_sAnswer();
+//                        imgQuestion.setImageResource(oQuestions.get_iImgQuestion());
+//                        rbtnAnswer1.setText(oQuestions.get_sAnswer1());
+//                        rbtnAnswer2.setText(oQuestions.get_sAnswer2());
+//                        rbtnAnswer3.setText(oQuestions.get_sAnswer3());
+//                        rbtnAnswer4.setText(oQuestions.get_sAnswer4());
                     }
                     break;
 
@@ -81,13 +80,14 @@ public class m1questions extends AppCompatActivity {
                     bContinue = oQuestions.nextQuestion();
                     if (bContinue == true){
                         // set all question text and answers
-                        txtQuestionM1.setText(oQuestions.get_sQuestion());
-                        sAnswer = oQuestions.get_sAnswer();
-                        imgQuestion.setImageResource(oQuestions.get_iImgQuestion());
-                        rbtnAnswer1.setText(oQuestions.get_sAnswer1());
-                        rbtnAnswer2.setText(oQuestions.get_sAnswer2());
-                        rbtnAnswer3.setText(oQuestions.get_sAnswer3());
-                        rbtnAnswer4.setText(oQuestions.get_sAnswer4());
+                        fnRefreshUI();
+//                        txtQuestionM1.setText(oQuestions.get_sQuestion());
+//                        sAnswer = oQuestions.get_sAnswer();
+//                        imgQuestion.setImageResource(oQuestions.get_iImgQuestion());
+//                        rbtnAnswer1.setText(oQuestions.get_sAnswer1());
+//                        rbtnAnswer2.setText(oQuestions.get_sAnswer2());
+//                        rbtnAnswer3.setText(oQuestions.get_sAnswer3());
+//                        rbtnAnswer4.setText(oQuestions.get_sAnswer4());
                     }
                     break;
 
@@ -112,5 +112,16 @@ public class m1questions extends AppCompatActivity {
                     break;
             }
         }
+    }
+
+    void fnRefreshUI() {
+        txtQuestionM1.setText(oQuestions.get_sQuestion());
+        sAnswer = oQuestions.get_sAnswer();
+        imgQuestion.setImageResource(oQuestions.get_iImgQuestion());
+        rbtnAnswer1.setText(oQuestions.get_sAnswer1());
+        rbtnAnswer2.setText(oQuestions.get_sAnswer2());
+        rbtnAnswer3.setText(oQuestions.get_sAnswer3());
+        rbtnAnswer4.setText(oQuestions.get_sAnswer4());
+        txtbottom.setText("Question: " + String.valueOf(oQuestions.get_CurrentQuestionCounter()) + " of " + String.valueOf(oQuestions.get_MaxQuestions())  );
     }
 }

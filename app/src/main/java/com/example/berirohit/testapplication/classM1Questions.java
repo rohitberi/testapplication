@@ -9,7 +9,7 @@ import android.util.Log;
 public class classM1Questions {
     private int iCounter = 0;
     private final String LOGTYPE = "INFORMATION";
-    private static int iMaxQuestions = 5;
+    private final static int IMAXQUESTIONS = 5;
 
     private String sQuestion = "";
     private int iImgQuestion;
@@ -37,7 +37,7 @@ public class classM1Questions {
         iCounter ++;    // counter starts at 0; before reading next question we move the counter up by 1
         Log.i(LOGTYPE, "function: nextQuestion: " + String.valueOf(iCounter));
 
-        if(iCounter <= iMaxQuestions){
+        if(iCounter <= IMAXQUESTIONS){
             readQuestion(iCounter);
             return true;
         }else{
@@ -140,6 +140,9 @@ public class classM1Questions {
     public String get_sAnswer4(){
         return sAnswer4;
     }
+    public int get_MaxQuestions() { return IMAXQUESTIONS;}
+    public int get_CurrentQuestionCounter() {return iCounter;}
+
 
 
 }
