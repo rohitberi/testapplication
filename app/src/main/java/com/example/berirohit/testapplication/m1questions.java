@@ -1,5 +1,6 @@
 package com.example.berirohit.testapplication;
 
+import android.media.Image;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ public class m1questions extends AppCompatActivity {
     classM1Questions oQuestions;
     ImageView imgPrevQuestion;
     ImageView imgNextQuestion;
+    ImageView imgQuestion;
     TextView txtbottom;
     TextView txtQuestionM1;
     RadioButton rbtnAnswer1, rbtnAnswer2, rbtnAnswer3, rbtnAnswer4;
@@ -35,6 +37,7 @@ public class m1questions extends AppCompatActivity {
 
         imgPrevQuestion = (ImageView) findViewById(R.id.imgPrevQuestion);
         imgNextQuestion = (ImageView) findViewById(R.id.imgNextQuestion);
+        imgQuestion = (ImageView) findViewById(R.id.imgQuestionM1);
         txtbottom = (TextView) findViewById(R.id.txtbottom);
         txtQuestionM1 = (TextView) findViewById(R.id.txtQuestionM1);
         rbtnAnswer1 = (RadioButton) findViewById(R.id.rbtnAnswer1);
@@ -64,6 +67,7 @@ public class m1questions extends AppCompatActivity {
                     if (bContinue == true){
                         txtQuestionM1.setText(oQuestions.get_sQuestion());
                         sAnswer = oQuestions.get_sAnswer();
+                        imgQuestion.setImageResource(oQuestions.get_iImgQuestion());
                         rbtnAnswer1.setText(oQuestions.get_sAnswer1());
                         rbtnAnswer2.setText(oQuestions.get_sAnswer2());
                         rbtnAnswer3.setText(oQuestions.get_sAnswer3());
@@ -79,6 +83,7 @@ public class m1questions extends AppCompatActivity {
                         // set all question text and answers
                         txtQuestionM1.setText(oQuestions.get_sQuestion());
                         sAnswer = oQuestions.get_sAnswer();
+                        imgQuestion.setImageResource(oQuestions.get_iImgQuestion());
                         rbtnAnswer1.setText(oQuestions.get_sAnswer1());
                         rbtnAnswer2.setText(oQuestions.get_sAnswer2());
                         rbtnAnswer3.setText(oQuestions.get_sAnswer3());

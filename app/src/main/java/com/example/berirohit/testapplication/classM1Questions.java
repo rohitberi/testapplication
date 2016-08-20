@@ -12,6 +12,7 @@ public class classM1Questions {
     private static int iMaxQuestions = 5;
 
     private String sQuestion = "";
+    private int iImgQuestion;
     private String sAnswer = "";
     private String sAnswer1 = "";
     private String sAnswer2 = "";
@@ -67,6 +68,7 @@ public class classM1Questions {
             case 1 :
                 sQuestion =  "This is Question 1"; //R.array.m1Q1[0];
                 sAnswer = "A";
+                iImgQuestion = R.drawable.m1q1;
                 sAnswer1 = "Answer 1 for Question 1";
                 sAnswer2 = "Answer 2 for Question 1";
                 sAnswer3 = "Answer 3 for Question 1";
@@ -76,6 +78,7 @@ public class classM1Questions {
             case 2:
                 sQuestion =  "This is Question 2"; //R.array.m1Q1[0];
                 sAnswer = "A";
+                iImgQuestion = R.drawable.m1q2;
                 sAnswer1 = "Answer 1 for Question 2";
                 sAnswer2 = "Answer 2 for Question 2";
                 sAnswer3 = "Answer 3 for Question 2";
@@ -85,6 +88,7 @@ public class classM1Questions {
             case 3:
                 sQuestion =  "This is Question 3"; //R.array.m1Q1[0];
                 sAnswer = "A";
+                iImgQuestion = R.drawable.m1q3;
                 sAnswer1 = "Answer 1 for Question 3";
                 sAnswer2 = "Answer 2 for Question 3";
                 sAnswer3 = "Answer 3 for Question 3";
@@ -94,6 +98,7 @@ public class classM1Questions {
             case 4:
                 sQuestion =  "This is Question 4"; //R.array.m1Q1[0];
                 sAnswer = "A";
+                iImgQuestion = R.drawable.m1q4;
                 sAnswer1 = "Answer 1 for Question 4";
                 sAnswer2 = "Answer 2 for Question 4";
                 sAnswer3 = "Answer 3 for Question 4";
@@ -103,6 +108,7 @@ public class classM1Questions {
             case 5:
                 sQuestion =  "This is Question 5"; //R.array.m1Q1[0];
                 sAnswer = "A";
+                iImgQuestion = R.drawable.m1q5;
                 sAnswer1 = "Answer 1 for Question 5";
                 sAnswer2 = "Answer 2 for Question 5";
                 sAnswer3 = "Answer 3 for Question 5";
@@ -113,6 +119,10 @@ public class classM1Questions {
 
     public String get_sQuestion(){
         return sQuestion;
+    }
+
+    public int get_iImgQuestion(){
+        return iImgQuestion;
     }
 
     public String get_sAnswer(){
