@@ -20,7 +20,7 @@ public class m1questions extends AppCompatActivity {
     TextView txtbottom;
     TextView txtQuestionM1;
     RadioButton rbtnAnswer1, rbtnAnswer2, rbtnAnswer3, rbtnAnswer4;
-    RadioGroup rgrpAnswers;
+//    RadioGroup rgrpAnswers;
     String sAnswer = "";
 
     private final String LOGTYPE = "INFORMATION";
@@ -41,7 +41,7 @@ public class m1questions extends AppCompatActivity {
         rbtnAnswer2 = (RadioButton) findViewById(R.id.rbtnAnswer2);
         rbtnAnswer3 = (RadioButton) findViewById(R.id.rbtnAnswer3);
         rbtnAnswer4 = (RadioButton) findViewById(R.id.rbtnAnswer4);
-        rgrpAnswers = (RadioGroup) findViewById(R.id.rgrpAnswers);
+//        rgrpAnswers = (RadioGroup) findViewById(R.id.rgrpAnswers);
 
         imgPrevQuestion.setOnClickListener(new OnImageButtonClick());
         imgNextQuestion.setOnClickListener(new OnImageButtonClick());

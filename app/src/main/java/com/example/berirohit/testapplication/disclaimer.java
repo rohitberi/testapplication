@@ -1,6 +1,8 @@
 package com.example.berirohit.testapplication;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -37,6 +39,13 @@ public class disclaimer extends AppCompatActivity {
                 case R.id.btnAccept:
                     if (chkDisclaimer.isChecked()){
                         Log.e("INFORMATION", "chkDisclaimer:" + chkDisclaimer.isChecked());
+
+//                        SharedPreferences sharedPref = disclaimer.this.getPreferences(Context.MODE_PRIVATE);
+                        SharedPreferences sharedPref = getSharedPreferences("myDataFile", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPref.edit();
+                        editor.putBoolean("DISCLAIMER_ACCEPTED",true);
+                        editor.commit();
+
                         Intent intent = new Intent(disclaimer.this, menu.class);
 //                    intent.putExtra("key", "value");
                     disclaimer.this.startActivity(intent);
