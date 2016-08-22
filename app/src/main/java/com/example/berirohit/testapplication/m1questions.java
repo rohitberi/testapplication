@@ -51,7 +51,6 @@ public class m1questions extends AppCompatActivity {
         oQuestions = new classM1Questions();
         oQuestions.firstQuestion();
         fnRefreshUI();
-
     }
 
     public class OnImageButtonClick implements View.OnClickListener{
@@ -65,13 +64,6 @@ public class m1questions extends AppCompatActivity {
                     if (bContinue == true){
                         // set all question text and answers
                         fnRefreshUI();
-//                        txtQuestionM1.setText(oQuestions.get_sQuestion());
-//                        sAnswer = oQuestions.get_sAnswer();
-//                        imgQuestion.setImageResource(oQuestions.get_iImgQuestion());
-//                        rbtnAnswer1.setText(oQuestions.get_sAnswer1());
-//                        rbtnAnswer2.setText(oQuestions.get_sAnswer2());
-//                        rbtnAnswer3.setText(oQuestions.get_sAnswer3());
-//                        rbtnAnswer4.setText(oQuestions.get_sAnswer4());
                     }
                     break;
 
@@ -81,34 +73,27 @@ public class m1questions extends AppCompatActivity {
                     if (bContinue == true){
                         // set all question text and answers
                         fnRefreshUI();
-//                        txtQuestionM1.setText(oQuestions.get_sQuestion());
-//                        sAnswer = oQuestions.get_sAnswer();
-//                        imgQuestion.setImageResource(oQuestions.get_iImgQuestion());
-//                        rbtnAnswer1.setText(oQuestions.get_sAnswer1());
-//                        rbtnAnswer2.setText(oQuestions.get_sAnswer2());
-//                        rbtnAnswer3.setText(oQuestions.get_sAnswer3());
-//                        rbtnAnswer4.setText(oQuestions.get_sAnswer4());
                     }
                     break;
 
                 case R.id.rbtnAnswer1:
                     Log.i(LOGTYPE, "case: Radio Button 1 Clicked");
-//                    Toast.makeText(this, "Radio Button 1 Clicked", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(m1questions.this, "Radio Button 1 Clicked", Toast.LENGTH_SHORT).show();
                     break;
 
                 case R.id.rbtnAnswer2:
                     Log.i(LOGTYPE, "case: Radio Button 2 Clicked");
-//                    Toast.makeText(this, "Radio Button 1 Clicked", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(m1questions.this, "Radio Button 2 Clicked", Toast.LENGTH_SHORT).show();
                     break;
 
                 case R.id.rbtnAnswer3:
                     Log.i(LOGTYPE, "case: Radio Button 3 Clicked");
-//                    Toast.makeText(this, "Radio Button 1 Clicked", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(m1questions.this, "Radio Button 3 Clicked", Toast.LENGTH_SHORT).show();
                     break;
 
                 case R.id.rbtnAnswer4:
                     Log.i(LOGTYPE, "case: Radio Button 4 Clicked");
-//                    Toast.makeText(this, "Radio Button 1 Clicked", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(m1questions.this, "Radio Button 4 Clicked", Toast.LENGTH_SHORT).show();
                     break;
             }
         }

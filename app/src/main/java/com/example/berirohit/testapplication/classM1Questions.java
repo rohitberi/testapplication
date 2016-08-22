@@ -19,17 +19,32 @@ public class classM1Questions {
     private String sAnswer3 = "";
     private String sAnswer4 = "";
 
+    private String[][] sM1Questions;
+    private int[] iM1QuestionImages;
+
+
     // these variables relate to the question that is in memory / being displayed on the UI
     private int iQuestion = 0;
 
     protected void classM1Questions(){
         iCounter = 0;
+        Log.i(LOGTYPE, "!!!!!CONSTRUCTOR!!!!!");
+        Log.i(LOGTYPE, "function: classM1Questions: " + String.valueOf(iCounter));
+//        sM1Questions = new String[][] {{"This is Question 1","A","Answer 1 for Question 1","Answer 2 for Question 1","Answer 3 for Question 1","Answer 4 for Question 1"},
+//                {"This is Question 2","B","Answer 1 for Question 2","Answer 2 for Question 2","Answer 3 for Question 2","Answer 4 for Question 2"},
+//                {"This is Question 3","B","Answer 1 for Question 3","Answer 2 for Question 3","Answer 3 for Question 3","Answer 4 for Question 3"},
+//                {"This is Question 4","B","Answer 1 for Question 4","Answer 2 for Question 4","Answer 3 for Question 4","Answer 4 for Question 4"},
+//                {"This is Question 5","B","Answer 1 for Question 5","Answer 2 for Question 5","Answer 3 for Question 5","Answer 4 for Question 5"}
+//        };
+//
+//        iM1QuestionImages = new int[] {R.drawable.m1q1, R.drawable.m1q2, R.drawable.m1q3, R.drawable.m1q4, R.drawable.m1q5};
+
     }
 
     void firstQuestion(){
 
         iCounter = 1;
-        Log.i(LOGTYPE, "function: previousQuestion: " + String.valueOf(iCounter));
+        Log.i(LOGTYPE, "function: firstQuestion: " + String.valueOf(iCounter));
         readQuestion(iCounter);
     }
 
@@ -64,57 +79,23 @@ public class classM1Questions {
     void readQuestion(int iCount){
         // this function will read the contents of a question into memory
         Log.i(LOGTYPE, "function: readQuestion: " + String.valueOf(iCounter));
-        switch (iCount){
-            case 1 :
-                sQuestion =  "This is Question 1"; //R.array.m1Q1[0];
-                sAnswer = "A";
-                iImgQuestion = R.drawable.m1q1;
-                sAnswer1 = "Answer 1 for Question 1";
-                sAnswer2 = "Answer 2 for Question 1";
-                sAnswer3 = "Answer 3 for Question 1";
-                sAnswer4 = "Answer 4 for Question 1";
-            break;
+        sM1Questions = new String[][] {
+                {"What does the above sign mean","A","Road Work Ahead","A construction sign replacing flagman on duty","Regulatory sign-reduce speed","School Area Ahead"},
+                {"This is Question 2","B","Answer 1 for Question 2","Answer 2 for Question 2","Answer 3 for Question 2","Answer 4 for Question 2"},
+                {"This is Question 3","B","Answer 1 for Question 3","Answer 2 for Question 3","Answer 3 for Question 3","Answer 4 for Question 3"},
+                {"This is Question 4","B","Answer 1 for Question 4","Answer 2 for Question 4","Answer 3 for Question 4","Answer 4 for Question 4"},
+                {"This is Question 5","B","Answer 1 for Question 5","Answer 2 for Question 5","Answer 3 for Question 5","Answer 4 for Question 5"}
+        };
 
-            case 2:
-                sQuestion =  "This is Question 2"; //R.array.m1Q1[0];
-                sAnswer = "A";
-                iImgQuestion = R.drawable.m1q2;
-                sAnswer1 = "Answer 1 for Question 2";
-                sAnswer2 = "Answer 2 for Question 2";
-                sAnswer3 = "Answer 3 for Question 2";
-                sAnswer4 = "Answer 4 for Question 2";
-                break;
+        iM1QuestionImages = new int[] {R.drawable.m1q1, R.drawable.m1q2, R.drawable.m1q3, R.drawable.m1q4, R.drawable.m1q5};
 
-            case 3:
-                sQuestion =  "This is Question 3"; //R.array.m1Q1[0];
-                sAnswer = "A";
-                iImgQuestion = R.drawable.m1q3;
-                sAnswer1 = "Answer 1 for Question 3";
-                sAnswer2 = "Answer 2 for Question 3";
-                sAnswer3 = "Answer 3 for Question 3";
-                sAnswer4 = "Answer 4 for Question 3";
-                break;
-
-            case 4:
-                sQuestion =  "This is Question 4"; //R.array.m1Q1[0];
-                sAnswer = "A";
-                iImgQuestion = R.drawable.m1q4;
-                sAnswer1 = "Answer 1 for Question 4";
-                sAnswer2 = "Answer 2 for Question 4";
-                sAnswer3 = "Answer 3 for Question 4";
-                sAnswer4 = "Answer 4 for Question 4";
-                break;
-
-            case 5:
-                sQuestion =  "This is Question 5"; //R.array.m1Q1[0];
-                sAnswer = "A";
-                iImgQuestion = R.drawable.m1q5;
-                sAnswer1 = "Answer 1 for Question 5";
-                sAnswer2 = "Answer 2 for Question 5";
-                sAnswer3 = "Answer 3 for Question 5";
-                sAnswer4 = "Answer 4 for Question 5";
-                break;
-        }
+        sQuestion =  sM1Questions[iCount-1][0];
+        sAnswer = sM1Questions[iCount-1][1];;
+        iImgQuestion = iM1QuestionImages[iCount - 1];
+        sAnswer1 = sM1Questions[iCount-1][2];
+        sAnswer2 = sM1Questions[iCount-1][3];
+        sAnswer3 = sM1Questions[iCount-1][4];
+        sAnswer4 = sM1Questions[iCount-1][5];
     }
 
     public String get_sQuestion(){
