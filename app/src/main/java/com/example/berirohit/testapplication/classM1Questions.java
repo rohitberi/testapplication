@@ -26,26 +26,35 @@ public class classM1Questions {
     // these variables relate to the question that is in memory / being displayed on the UI
     private int iQuestion = 0;
 
-    protected void classM1Questions(){
+    classM1Questions(){
         iCounter = 0;
         Log.i(LOGTYPE, "!!!!!CONSTRUCTOR!!!!!");
         Log.i(LOGTYPE, "function: classM1Questions: " + String.valueOf(iCounter));
-//        sM1Questions = new String[][] {{"This is Question 1","A","Answer 1 for Question 1","Answer 2 for Question 1","Answer 3 for Question 1","Answer 4 for Question 1"},
-//                {"This is Question 2","B","Answer 1 for Question 2","Answer 2 for Question 2","Answer 3 for Question 2","Answer 4 for Question 2"},
-//                {"This is Question 3","B","Answer 1 for Question 3","Answer 2 for Question 3","Answer 3 for Question 3","Answer 4 for Question 3"},
-//                {"This is Question 4","B","Answer 1 for Question 4","Answer 2 for Question 4","Answer 3 for Question 4","Answer 4 for Question 4"},
-//                {"This is Question 5","B","Answer 1 for Question 5","Answer 2 for Question 5","Answer 3 for Question 5","Answer 4 for Question 5"}
-//        };
-//
-//        iM1QuestionImages = new int[] {R.drawable.m1q1, R.drawable.m1q2, R.drawable.m1q3, R.drawable.m1q4, R.drawable.m1q5};
+        sM1Questions = new String[][] {{"This is Question 1","A","Answer 1 for Question 1","Answer 2 for Question 1","Answer 3 for Question 1","Answer 4 for Question 1"},
+                {"This is Question 2","B","Answer 1 for Question 2","Answer 2 for Question 2","Answer 3 for Question 2","Answer 4 for Question 2"},
+                {"This is Question 3","B","Answer 1 for Question 3","Answer 2 for Question 3","Answer 3 for Question 3","Answer 4 for Question 3"},
+                {"This is Question 4","B","Answer 1 for Question 4","Answer 2 for Question 4","Answer 3 for Question 4","Answer 4 for Question 4"},
+                {"This is Question 5","B","Answer 1 for Question 5","Answer 2 for Question 5","Answer 3 for Question 5","Answer 4 for Question 5"}
+        };
 
+        iM1QuestionImages = new int[] {R.drawable.m1q1, R.drawable.m1q2, R.drawable.m1q3, R.drawable.m1q4, R.drawable.m1q5};
     }
 
     void firstQuestion(){
-
         iCounter = 1;
         Log.i(LOGTYPE, "function: firstQuestion: " + String.valueOf(iCounter));
         readQuestion(iCounter);
+    }
+
+    Boolean fnCheckAnswer(String sSelectedAnswer, int iQuesCounter){
+        Log.i(LOGTYPE, "function: fnCheckAnswer: " + String.valueOf(iCounter));
+        Boolean bIsCorrect = false;
+
+        if (sSelectedAnswer == sM1Questions[iQuesCounter -1][1] ){
+            bIsCorrect = true;
+        }
+
+        return bIsCorrect;
     }
 
     Boolean nextQuestion(){
@@ -79,15 +88,6 @@ public class classM1Questions {
     void readQuestion(int iCount){
         // this function will read the contents of a question into memory
         Log.i(LOGTYPE, "function: readQuestion: " + String.valueOf(iCounter));
-        sM1Questions = new String[][] {
-                {"What does the above sign mean","A","Road Work Ahead","A construction sign replacing flagman on duty","Regulatory sign-reduce speed","School Area Ahead"},
-                {"This is Question 2","B","Answer 1 for Question 2","Answer 2 for Question 2","Answer 3 for Question 2","Answer 4 for Question 2"},
-                {"This is Question 3","B","Answer 1 for Question 3","Answer 2 for Question 3","Answer 3 for Question 3","Answer 4 for Question 3"},
-                {"This is Question 4","B","Answer 1 for Question 4","Answer 2 for Question 4","Answer 3 for Question 4","Answer 4 for Question 4"},
-                {"This is Question 5","B","Answer 1 for Question 5","Answer 2 for Question 5","Answer 3 for Question 5","Answer 4 for Question 5"}
-        };
-
-        iM1QuestionImages = new int[] {R.drawable.m1q1, R.drawable.m1q2, R.drawable.m1q3, R.drawable.m1q4, R.drawable.m1q5};
 
         sQuestion =  sM1Questions[iCount-1][0];
         sAnswer = sM1Questions[iCount-1][1];;
