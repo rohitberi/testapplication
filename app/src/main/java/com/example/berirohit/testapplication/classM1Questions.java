@@ -2,6 +2,9 @@ package com.example.berirohit.testapplication;
 
 import android.util.Log;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 /**
  * Created by roberi on 8/3/2016.
  */
@@ -22,6 +25,8 @@ public class classM1Questions {
     private String[][] sM1Questions;
     private int[] iM1QuestionImages;
 
+    JSONArray jsArray;
+    JSONObject jsObj;
 
     // these variables relate to the question that is in memory / being displayed on the UI
     private int iQuestion = 0;
