@@ -70,8 +70,6 @@ public class m2Questions extends AppCompatActivity {
                 Toast.makeText(m2Questions.this,"Error reading JSON array: " + e.getMessage(),Toast.LENGTH_SHORT).show();
                 Log.i(LOGTYPE, "Error reading JSON array: " + e.getMessage());
             }
-
-
         }
     }
 }

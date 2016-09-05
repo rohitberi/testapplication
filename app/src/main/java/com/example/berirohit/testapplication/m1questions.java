@@ -13,6 +13,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+
 public class m1questions extends AppCompatActivity {
 
     classM1Questions oQuestions;
@@ -48,7 +50,11 @@ public class m1questions extends AppCompatActivity {
         rbtnAnswer3.setOnClickListener(new OnImageButtonClick());
         rbtnAnswer4.setOnClickListener(new OnImageButtonClick());
 
-        oQuestions = new classM1Questions();
+        try {
+            oQuestions = new classM1Questions();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         oQuestions.firstQuestion();
         fnRefreshUI();
     }
@@ -134,7 +140,7 @@ public class m1questions extends AppCompatActivity {
         rbtnAnswer2.setText(oQuestions.get_sAnswer2());
         rbtnAnswer3.setText(oQuestions.get_sAnswer3());
         rbtnAnswer4.setText(oQuestions.get_sAnswer4());
-        txtbottom.setText("Question: " + String.valueOf(oQuestions.get_CurrentQuestionCounter()) + " of " + String.valueOf(oQuestions.get_MaxQuestions())  );
+        txtbottom.setText("Question: " + String.valueOf(oQuestions.get_CurrentQuestionCounter() + 1) + " of " + String.valueOf(oQuestions.get_MaxQuestions())  );
         rbtnAnswer1.setChecked(false);
         rbtnAnswer2.setChecked(false);
         rbtnAnswer3.setChecked(false);
