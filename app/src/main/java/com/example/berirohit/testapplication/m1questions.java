@@ -102,7 +102,6 @@ public class m1questions extends AppCompatActivity {
                     }else{
                         Toast.makeText(m1questions.this, "INCORRECT ANSWER", Toast.LENGTH_SHORT).show();
                     }
-
                     break;
 
                 case R.id.rbtnAnswer3:
@@ -114,7 +113,6 @@ public class m1questions extends AppCompatActivity {
                     }else{
                         Toast.makeText(m1questions.this, "INCORRECT ANSWER", Toast.LENGTH_SHORT).show();
                     }
-
                     break;
 
                 case R.id.rbtnAnswer4:
@@ -126,7 +124,6 @@ public class m1questions extends AppCompatActivity {
                     }else{
                         Toast.makeText(m1questions.this, "INCORRECT ANSWER", Toast.LENGTH_SHORT).show();
                     }
-
                     break;
             }
         }

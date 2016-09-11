@@ -46,10 +46,10 @@ public class classM1Questions {
 
         String sJSONInputString = "{ questions: [" +
                 "{\"Question\":\"This is Question 1\", \"Answer\":\"A\", \"O1\":\"Answer 1 for Question 1\", \"O2\":\"Answer 2 for Question 1\", \"O3\":\"Answer 3 for Question 1\", \"O4\":\"Answer 4 for Question 1\"}," +
-                "{\"Question\":\"This is Question 2\", \"Answer\":\"A\", \"O1\":\"Answer 1 for Question 2\", \"O2\":\"Answer 2 for Question 2\", \"O3\":\"Answer 3 for Question 2\", \"O4\":\"Answer 4 for Question 2\"}," +
-                "{\"Question\":\"This is Question 3\", \"Answer\":\"A\", \"O1\":\"Answer 1 for Question 3\", \"O2\":\"Answer 2 for Question 3\", \"O3\":\"Answer 3 for Question 3\", \"O4\":\"Answer 4 for Question 3\"}," +
-                "{\"Question\":\"This is Question 4\", \"Answer\":\"A\", \"O1\":\"Answer 1 for Question 4\", \"O2\":\"Answer 2 for Question 4\", \"O3\":\"Answer 3 for Question 4\", \"O4\":\"Answer 4 for Question 4\"}," +
-                "{\"Question\":\"This is Question 5\", \"Answer\":\"A\", \"O1\":\"Answer 1 for Question 5\", \"O2\":\"Answer 2 for Question 5\", \"O3\":\"Answer 3 for Question 5\", \"O4\":\"Answer 4 for Question 5\"}" +
+                "{\"Question\":\"This is Question 2\", \"Answer\":\"B\", \"O1\":\"Answer 1 for Question 2\", \"O2\":\"Answer 2 for Question 2\", \"O3\":\"Answer 3 for Question 2\", \"O4\":\"Answer 4 for Question 2\"}," +
+                "{\"Question\":\"This is Question 3\", \"Answer\":\"C\", \"O1\":\"Answer 1 for Question 3\", \"O2\":\"Answer 2 for Question 3\", \"O3\":\"Answer 3 for Question 3\", \"O4\":\"Answer 4 for Question 3\"}," +
+                "{\"Question\":\"This is Question 4\", \"Answer\":\"D\", \"O1\":\"Answer 1 for Question 4\", \"O2\":\"Answer 2 for Question 4\", \"O3\":\"Answer 3 for Question 4\", \"O4\":\"Answer 4 for Question 4\"}," +
+                "{\"Question\":\"This is Question 5\", \"Answer\":\"B\", \"O1\":\"Answer 1 for Question 5\", \"O2\":\"Answer 2 for Question 5\", \"O3\":\"Answer 3 for Question 5\", \"O4\":\"Answer 4 for Question 5\"}" +
                 "] }";
 
         try {
@@ -70,11 +70,14 @@ public class classM1Questions {
 
     Boolean fnCheckAnswer(String sSelectedAnswer, int iQuesCounter){
         Log.i(LOGTYPE, "function: fnCheckAnswer: " + String.valueOf(iCounter));
+        Log.i(LOGTYPE, "sSelectedAnswer: " + sSelectedAnswer + " sAnswer: " + sAnswer + " iQuesCounter: " + String.valueOf(iQuesCounter));
         Boolean bIsCorrect = false;
 
-        if (sSelectedAnswer == sAnswer){ //sM1Questions[iQuesCounter -1][1] ){
+//        Log.i(LOGTYPE, "bIsCorrect:" + bIsCorrect);
+        if  (sSelectedAnswer.compareTo(sAnswer) == 0){  //(sSelectedAnswer == sAnswer){ //sM1Questions[iQuesCounter -1][1] ){
             bIsCorrect = true;
         }
+//        Log.i(LOGTYPE, "bIsCorrect:" + bIsCorrect);
         return bIsCorrect;
     }
 
@@ -95,7 +98,7 @@ public class classM1Questions {
     Boolean previousQuestion(){
         iCounter --;
         Log.i(LOGTYPE, "function: previousQuestion: " + String.valueOf(iCounter));
-        if (iCounter > 0){
+        if (iCounter >= 0){
             readQuestion(iCounter);
             return true;
         }else{
@@ -115,6 +118,7 @@ public class classM1Questions {
             sQuestion =  oJSONQuestion.get("Question").toString(); //sM1Questions[iCount-1][0];
             Log.i(LOGTYPE, "sQuestion: " + sQuestion);
             sAnswer = oJSONQuestion.get("Answer").toString(); //sM1Questions[iCount-1][1];;
+            Log.i(LOGTYPE, "sAnswer: " + sAnswer);
             iImgQuestion = iM1QuestionImages[iCount];
             sAnswer1 = oJSONQuestion.get("O1").toString(); //ssM1Questions[iCount-1][2];
             Log.i(LOGTYPE, "O1: " + sAnswer1);
