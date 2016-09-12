@@ -55,7 +55,7 @@ public class m1questions extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        oQuestions.firstQuestion();
+        oQuestions.fnFirstQuestion();
         fnRefreshUI();
     }
 
@@ -66,7 +66,7 @@ public class m1questions extends AppCompatActivity {
             switch (view.getId()) {
                 case R.id.imgPrevQuestion:
                     Log.i(LOGTYPE, "case: imgPrevQuestion");
-                    bContinue = oQuestions.previousQuestion();
+                    bContinue = oQuestions.fnPreviousQuestion();
                     if (bContinue){
                         // set all question text and answers
                         fnRefreshUI();
@@ -75,7 +75,7 @@ public class m1questions extends AppCompatActivity {
 
                 case R.id.imgNextQuestion:
                     Log.i(LOGTYPE, "case: imgNextQuestion");
-                    bContinue = oQuestions.nextQuestion();
+                    bContinue = oQuestions.fnNextQuestion();
                     if (bContinue){
                         // set all question text and answers
                         fnRefreshUI();
@@ -86,7 +86,7 @@ public class m1questions extends AppCompatActivity {
                     Log.i(LOGTYPE, "case: Radio Button 1 Clicked");
                     Toast.makeText(m1questions.this, "Radio Button 1 Clicked", Toast.LENGTH_SHORT).show();
 
-                    if (oQuestions.fnCheckAnswer("A", oQuestions.get_CurrentQuestionCounter())){
+                    if (oQuestions.fnCheckAnswer("A", oQuestions.fnGetCurrentQuestionCounter())){
                         Toast.makeText(m1questions.this, "!!!! CORRECT ANSWER !!!!", Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(m1questions.this, "INCORRECT ANSWER", Toast.LENGTH_SHORT).show();
@@ -97,7 +97,7 @@ public class m1questions extends AppCompatActivity {
                     Log.i(LOGTYPE, "case: Radio Button 2 Clicked");
                     Toast.makeText(m1questions.this, "Radio Button 2 Clicked", Toast.LENGTH_SHORT).show();
 
-                    if (oQuestions.fnCheckAnswer("B", oQuestions.get_CurrentQuestionCounter())){
+                    if (oQuestions.fnCheckAnswer("B", oQuestions.fnGetCurrentQuestionCounter())){
                         Toast.makeText(m1questions.this, "!!!! CORRECT ANSWER !!!!", Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(m1questions.this, "INCORRECT ANSWER", Toast.LENGTH_SHORT).show();
@@ -108,7 +108,7 @@ public class m1questions extends AppCompatActivity {
                     Log.i(LOGTYPE, "case: Radio Button 3 Clicked");
                     Toast.makeText(m1questions.this, "Radio Button 3 Clicked", Toast.LENGTH_SHORT).show();
 
-                    if (oQuestions.fnCheckAnswer("C", oQuestions.get_CurrentQuestionCounter())){
+                    if (oQuestions.fnCheckAnswer("C", oQuestions.fnGetCurrentQuestionCounter())){
                         Toast.makeText(m1questions.this, "!!!! CORRECT ANSWER !!!!", Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(m1questions.this, "INCORRECT ANSWER", Toast.LENGTH_SHORT).show();
@@ -119,7 +119,7 @@ public class m1questions extends AppCompatActivity {
                     Log.i(LOGTYPE, "case: Radio Button 4 Clicked");
                     Toast.makeText(m1questions.this, "Radio Button 4 Clicked", Toast.LENGTH_SHORT).show();
 
-                    if (oQuestions.fnCheckAnswer("D", oQuestions.get_CurrentQuestionCounter())){
+                    if (oQuestions.fnCheckAnswer("D", oQuestions.fnGetCurrentQuestionCounter())){
                         Toast.makeText(m1questions.this, "!!!! CORRECT ANSWER !!!!", Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(m1questions.this, "INCORRECT ANSWER", Toast.LENGTH_SHORT).show();
@@ -130,17 +130,17 @@ public class m1questions extends AppCompatActivity {
     }
 
     void fnRefreshUI() {
-        txtQuestionM1.setText(oQuestions.get_sQuestion());
-        sAnswer = oQuestions.get_sAnswer();
-        imgQuestion.setImageResource(oQuestions.get_iImgQuestion());
-        rbtnAnswer1.setText(oQuestions.get_sAnswer1());
-        rbtnAnswer2.setText(oQuestions.get_sAnswer2());
-        rbtnAnswer3.setText(oQuestions.get_sAnswer3());
-        rbtnAnswer4.setText(oQuestions.get_sAnswer4());
-        txtbottom.setText("Question: " + String.valueOf(oQuestions.get_CurrentQuestionCounter() + 1) + " of " + String.valueOf(oQuestions.get_MaxQuestions())  );
+        txtQuestionM1.setText(oQuestions.getsQuestion());
+        sAnswer = oQuestions.getsAnswer();
+        imgQuestion.setImageResource(oQuestions.getiImgQuestion());
+        rbtnAnswer1.setText(oQuestions.getsAnswerOption1());
+        rbtnAnswer2.setText(oQuestions.getsAnswerOption2());
+        rbtnAnswer3.setText(oQuestions.getsAnswerOption3());
+        rbtnAnswer4.setText(oQuestions.getsAnswerOption4());
         rbtnAnswer1.setChecked(false);
         rbtnAnswer2.setChecked(false);
         rbtnAnswer3.setChecked(false);
         rbtnAnswer4.setChecked(false);
+        txtbottom.setText("Question: " + String.valueOf(oQuestions.fnGetCurrentQuestionCounter() + 1) + " of " + String.valueOf(oQuestions.fnGetMaxQuestions())  );
     }
 }
