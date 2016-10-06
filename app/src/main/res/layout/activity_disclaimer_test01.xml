@@ -1,43 +1,205 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<TableLayout
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/editText"
-        android:text="@string/Disclaimer" />
-    android:layout_weight="4" />
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:shrinkColumns="0,2">
 
-    <CheckBox
-        android:text="@string/AcceptDisclaimer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/chkAccept"
-        android:layout_weight="1" />
-
-    <LinearLayout
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:gravity="center_vertical|center_horizontal|center">
 
-        <Button
-            android:text="Button"
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button"
-            android:layout_weight="1" />
+            app:srcCompat="@mipmap/ic_launcher"
+            android:id="@+id/imgQuestionM1"
+            android:layout_gravity="center_vertical|center_horizontal|center"
+            android:layout_column="0"
+            android:layout_span="3" />
+    </TableRow>
 
-        <Button
-            android:text="Button"
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal|center">
+        android:gravity="center_vertical|center_horizontal|center">
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button2"
+            android:layout_column="0"
+            android:id="@+id/textView"
             android:layout_weight="1" />
-    </LinearLayout>
 
-</LinearLayout>
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtQuestionM1"
+            android:layout_column="1"
+            android:layout_gravity="center_vertical|center_horizontal|center"
+            android:layout_weight="4" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:layout_column="2"
+            android:layout_weight="1" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|center_horizontal|center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3"
+            android:layout_column="0"
+            android:layout_span="3" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|center_horizontal|center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView4"
+            android:layout_column="0"
+            android:layout_span="3" />
+    </TableRow>
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/rgrpAnswers">
+
+            <TableRow>
+
+                    <RadioButton
+                        android:text="Answer Option 1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/rbtnAnswer1"/>
+            </TableRow>
+            <TableRow>
+                    <RadioButton
+                        android:text="Answer Option 2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/rbtnAnswer2"/>
+            </TableRow>
+            <TableRow>
+                    <RadioButton
+                        android:text="Answer Option 3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/rbtnAnswer3"/>
+            </TableRow>
+            <TableRow>
+                    <RadioButton
+                        android:text="Answer Option 4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/rbtnAnswer4"/>
+            </TableRow>
+        </RadioGroup>
+    </TableLayout>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|center_horizontal|center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView5"
+            android:layout_column="0"
+            android:layout_span="3" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@android:drawable/ic_media_rew"
+            android:id="@+id/imgPrevQuestion"
+            android:layout_gravity="center_vertical|center_horizontal|center"
+            android:layout_column="0"
+            android:layout_weight="1" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtbottom"
+            android:layout_gravity="center_vertical|center_horizontal|center"
+            android:layout_column="1"
+            android:layout_weight="4" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@android:drawable/ic_media_ff"
+            android:id="@+id/imgNextQuestion"
+            android:layout_gravity="center_vertical|center_horizontal|center"
+            android:layout_column="2"
+            android:layout_weight="1" />
+
+    </TableRow>
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|center_horizontal|center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView6"
+            android:layout_column="0"
+            android:layout_span="3" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:text="ADDDDsssss"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/txtAds"
+            android:layout_gravity="center_vertical|center_horizontal|center"
+            android:layout_span="3" />
+
+    </TableRow>
+
+</TableLayout>

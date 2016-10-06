@@ -55,8 +55,8 @@ public class m1questions extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        oQuestions.fnFirstQuestion();
-        fnRefreshUI(oQuestions.fnGetCurrentQuestionCounter());
+        oQuestions.fnFirstQuestion();                               // start the object with the first question.
+        fnRefreshUI(oQuestions.fnGetCurrentQuestionCounter());      // setup the UI to display first question
     }
 
     public class OnImageButtonClick implements View.OnClickListener{
@@ -138,10 +138,10 @@ public class m1questions extends AppCompatActivity {
         rbtnAnswer2.setText(oQuestions.getsAnswerOption2());
         rbtnAnswer3.setText(oQuestions.getsAnswerOption3());
         rbtnAnswer4.setText(oQuestions.getsAnswerOption4());
-        rbtnAnswer1.setChecked(true);
-        rbtnAnswer2.setChecked(true);
-        rbtnAnswer3.setChecked(true);
-        rbtnAnswer4.setChecked(true);
+        rbtnAnswer1.setChecked(false);
+        rbtnAnswer2.setChecked(false);
+        rbtnAnswer3.setChecked(false);
+        rbtnAnswer4.setChecked(false);
         txtbottom.setText("Question: " + String.valueOf(oQuestions.fnGetCurrentQuestionCounter() + 1) + " of " + String.valueOf(oQuestions.fnGetMaxQuestions())  );
         Log.i(LOGTYPE, "fnRefreshUI check boxes set");
 //        Toast.makeText(m1questions.this, "function RefreshIU getbArrayFirstAttempt: " + oQuestions.getbArrayFirstAttempt(iCounter), Toast.LENGTH_SHORT).show();
@@ -151,6 +151,11 @@ public class m1questions extends AppCompatActivity {
             rbtnAnswer2.setEnabled(false);
             rbtnAnswer3.setEnabled(false);
             rbtnAnswer4.setEnabled(false);
+        } else{
+            rbtnAnswer1.setEnabled(true);
+            rbtnAnswer2.setEnabled(true);
+            rbtnAnswer3.setEnabled(true);
+            rbtnAnswer4.setEnabled(true);
         }
 
     }

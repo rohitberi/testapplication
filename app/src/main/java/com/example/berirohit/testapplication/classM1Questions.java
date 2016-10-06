@@ -35,7 +35,7 @@ public class classM1Questions {
     private int iCountCorrectAnswers = 0;         // this counter to maintain # of correct questions answered
     private Boolean bArrayFirstAttempt[];         // this array tracks weather its the users first attempt at the question or not
     private int iArraySelectedAnswer[];           // this is an array of what was selected as the answer for the question
-    private Boolean bArraySelectedAnswerStatus[]; // this array holds whether the selcted answer was correct or not
+    private Boolean bArraySelectedAnswerStatus[]; // this array holds whether the selected answer was correct or not
 
     private final String LOGTYPE = "INFORMATION";
     private final int IMAXQUESTIONS;
