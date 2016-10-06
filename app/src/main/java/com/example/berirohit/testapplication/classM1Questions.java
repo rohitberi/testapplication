@@ -6,15 +6,37 @@ import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import java.util.Arrays;
+
+import java.util.Arrays;
 
 /**
- * Created by roberi on 8/3/2016.
+ * Created by roberi on 8/3/'2016.
+ *
+ * Requirements
+ *
+ here are some requirements
+ - proceed with loading the question in sequence
+ - set # of questions answered from total number of question
+ - refresh current success percentage (based on correct answers answered)
+ - check if this is the first time question is being presented
+ - if YES
+ check if the question has been answered before
+ if NOT
+ activate all controls
+ If YES
+ mark all questions read
+
+ *
  */
 
 public class classM1Questions {
     private int iCounter = 0;
     private int iCountCorrectAnswers = 0;         // this counter to maintain # of correct questions answered
-    private int iarrayQuestionAnswers[];          // this is an array of which question was answered how
+    private Boolean bArrayFirstAttempt[];         // this array tracks weather its the users first attempt at the question or not
+    private int iArraySelectedAnswer[];           // this is an array of what was selected as the answer for the question
+    private Boolean bArraySelectedAnswerStatus[]; // this array holds whether the selcted answer was correct or not
+
     private final String LOGTYPE = "INFORMATION";
     private final int IMAXQUESTIONS;
 
@@ -35,8 +57,7 @@ public class classM1Questions {
 
     classM1Questions() throws JSONException {
         iCounter = 0;
-        Log.i(LOGTYPE, "!!!!!CONSTRUCTOR!!!!!");
-        Log.i(LOGTYPE, "function: classM1Questions: " + String.valueOf(iCounter));
+        Log.i(LOGTYPE, "function: !!!!!CONSTRUCTOR!!!!! classM1Questions");
 
         String sJSONInputString = "{ questions: [" +
                 "{\"Question\":\"This is Question 1\", \"Answer\":\"A\", \"O1\":\"Answer 1 for Question 1\", \"O2\":\"Answer 2 for Question 1\", \"O3\":\"Answer 3 for Question 1\", \"O4\":\"Answer 4 for Question 1\"}," +
@@ -52,7 +73,17 @@ public class classM1Questions {
             Log.i(LOGTYPE, "Error reading JSON String: " + e.getMessage());
         }
         iM1QuestionImages = new int[] {R.drawable.m1q1, R.drawable.m1q2, R.drawable.m1q3, R.drawable.m1q4, R.drawable.m1q5};
+
         IMAXQUESTIONS = oJSONQuestionsList.length();       // set total number of questions based on array length
+
+        bArrayFirstAttempt = new Boolean[IMAXQUESTIONS];            // initialize array
+        iArraySelectedAnswer = new int[IMAXQUESTIONS];              // initialize array
+        bArraySelectedAnswerStatus = new Boolean[IMAXQUESTIONS];    // initialize array
+
+        iCountCorrectAnswers = 0;
+        Arrays.fill(bArrayFirstAttempt,true);           // initialize all array elements to true.
+        Arrays.fill(iArraySelectedAnswer,0);            // no answer selected
+        Arrays.fill(bArraySelectedAnswerStatus, false); // initialize all Selected answers array to false.
     }
 
     void fnFirstQuestion(){
@@ -60,20 +91,41 @@ public class classM1Questions {
         Log.i(LOGTYPE, "function: firstQuestion: " + String.valueOf(iCounter));
         fnReadQuestion(iCounter);
     }
+
     Boolean fnCheckAnswer(String sSelectedAnswer, int iQuesCounter){
         Log.i(LOGTYPE, "function: fnCheckAnswer: " + String.valueOf(iCounter));
         Log.i(LOGTYPE, "sSelectedAnswer: " + sSelectedAnswer + " sAnswer: " + sAnswer + " iQuesCounter: " + String.valueOf(iQuesCounter));
         Boolean bIsCorrect = false;
+        bArrayFirstAttempt[iQuesCounter] = false;  // irrespective of the answer, the question has been attempted
+
+        switch (sSelectedAnswer){
+            case "A":
+                iArraySelectedAnswer[iQuesCounter] = 1;
+                break;
+            case "B":
+                iArraySelectedAnswer[iQuesCounter] = 2;
+                break;
+            case "C":
+                iArraySelectedAnswer[iQuesCounter] = 3;
+                break;
+            case "D":
+                iArraySelectedAnswer[iQuesCounter] = 4;
+                break;
+        }
 
 //        Log.i(LOGTYPE, "bIsCorrect:" + bIsCorrect);
         if  (sSelectedAnswer.compareTo(sAnswer) == 0){  //(sSelectedAnswer == sAnswer){ //sM1Questions[iQuesCounter -1][1] ){
             bIsCorrect = true;
+            iCountCorrectAnswers = iCountCorrectAnswers++ ;
+            bArraySelectedAnswerStatus[iQuesCounter] = true;    // selected answer is correct
+        }else {
+            bArraySelectedAnswerStatus[iQuesCounter] = false;   // selected answer is NOT correct
         }
 //        Log.i(LOGTYPE, "bIsCorrect:" + bIsCorrect);
         return bIsCorrect;
     }
-    Boolean fnNextQuestion(){
 
+    Boolean fnNextQuestion(){
         iCounter ++;    // counter starts at 0; before reading next question we move the counter up by 1
         Log.i(LOGTYPE, "function: nextQuestion: " + String.valueOf(iCounter));
 
@@ -86,6 +138,7 @@ public class classM1Questions {
             return false;
         }
     }
+
     Boolean fnPreviousQuestion(){
         iCounter --;
         Log.i(LOGTYPE, "function: previousQuestion: " + String.valueOf(iCounter));
@@ -98,6 +151,7 @@ public class classM1Questions {
             return false;
         }
     }
+
     void fnReadQuestion(int iCount){
         // this function will read the contents of a question into memory
         Log.i(LOGTYPE, "function: readQuestion: " + String.valueOf(iCounter));
@@ -111,12 +165,12 @@ public class classM1Questions {
             Log.i(LOGTYPE, "sAnswer: " + sAnswer);
             iImgQuestion = iM1QuestionImages[iCount];
             sAnswerOption1 = oJSONQuestion.get("O1").toString(); //ssM1Questions[iCount-1][2];
-            Log.i(LOGTYPE, "O1: " + sAnswerOption1);
             sAnswerOption2 = oJSONQuestion.get("O2").toString(); //ssM1Questions[iCount-1][3];
-            Log.i(LOGTYPE, "O2: " + sAnswerOption2);
             sAnswerOption3 = oJSONQuestion.get("O3").toString(); //ssM1Questions[iCount-1][4];
-            Log.i(LOGTYPE, "O3: " + sAnswerOption3);
             sAnswerOption4 = oJSONQuestion.get("O4").toString(); //ssM1Questions[iCount-1][5];
+            Log.i(LOGTYPE, "O1: " + sAnswerOption1);
+            Log.i(LOGTYPE, "O2: " + sAnswerOption2);
+            Log.i(LOGTYPE, "O3: " + sAnswerOption3);
             Log.i(LOGTYPE, "O4: " + sAnswerOption4);
         }
         catch (JSONException e) {
@@ -147,4 +201,13 @@ public class classM1Questions {
     }
     public int fnGetMaxQuestions() { return IMAXQUESTIONS; }
     public int fnGetCurrentQuestionCounter() {return iCounter;}
+    public int getiCountCorrectAnswers(){return iCountCorrectAnswers;}
+    public Boolean getbArrayFirstAttempt(int iCount){
+        return bArrayFirstAttempt[iCount];
+    }
+    public void setbArrayFirstAttempt (int iCount){
+        bArrayFirstAttempt[iCount] = false;
+    }
+    public int getiArraySelectedAnswer(int iCount) { return iArraySelectedAnswer[iCount];}
+    public Boolean getbArraySelectedAnswerStatus(int iCount){ return bArraySelectedAnswerStatus[iCount];}
 }

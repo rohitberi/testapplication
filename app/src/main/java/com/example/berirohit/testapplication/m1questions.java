@@ -56,7 +56,7 @@ public class m1questions extends AppCompatActivity {
             e.printStackTrace();
         }
         oQuestions.fnFirstQuestion();
-        fnRefreshUI();
+        fnRefreshUI(oQuestions.fnGetCurrentQuestionCounter());
     }
 
     public class OnImageButtonClick implements View.OnClickListener{
@@ -69,7 +69,7 @@ public class m1questions extends AppCompatActivity {
                     bContinue = oQuestions.fnPreviousQuestion();
                     if (bContinue){
                         // set all question text and answers
-                        fnRefreshUI();
+                        fnRefreshUI(oQuestions.fnGetCurrentQuestionCounter());
                     }
                     break;
 
@@ -78,14 +78,14 @@ public class m1questions extends AppCompatActivity {
                     bContinue = oQuestions.fnNextQuestion();
                     if (bContinue){
                         // set all question text and answers
-                        fnRefreshUI();
+                        fnRefreshUI(oQuestions.fnGetCurrentQuestionCounter());
                     }
                     break;
 
                 case R.id.rbtnAnswer1:
                     Log.i(LOGTYPE, "case: Radio Button 1 Clicked");
+                    oQuestions.setbArrayFirstAttempt(oQuestions.fnGetCurrentQuestionCounter());     // this will mark this array attribute to false to indicate that the question has been previously answered.
                     Toast.makeText(m1questions.this, "Radio Button 1 Clicked", Toast.LENGTH_SHORT).show();
-
                     if (oQuestions.fnCheckAnswer("A", oQuestions.fnGetCurrentQuestionCounter())){
                         Toast.makeText(m1questions.this, "!!!! CORRECT ANSWER !!!!", Toast.LENGTH_SHORT).show();
                     }else{
@@ -96,7 +96,7 @@ public class m1questions extends AppCompatActivity {
                 case R.id.rbtnAnswer2:
                     Log.i(LOGTYPE, "case: Radio Button 2 Clicked");
                     Toast.makeText(m1questions.this, "Radio Button 2 Clicked", Toast.LENGTH_SHORT).show();
-
+                    oQuestions.setbArrayFirstAttempt(oQuestions.fnGetCurrentQuestionCounter());
                     if (oQuestions.fnCheckAnswer("B", oQuestions.fnGetCurrentQuestionCounter())){
                         Toast.makeText(m1questions.this, "!!!! CORRECT ANSWER !!!!", Toast.LENGTH_SHORT).show();
                     }else{
@@ -107,7 +107,7 @@ public class m1questions extends AppCompatActivity {
                 case R.id.rbtnAnswer3:
                     Log.i(LOGTYPE, "case: Radio Button 3 Clicked");
                     Toast.makeText(m1questions.this, "Radio Button 3 Clicked", Toast.LENGTH_SHORT).show();
-
+                    oQuestions.setbArrayFirstAttempt(oQuestions.fnGetCurrentQuestionCounter());
                     if (oQuestions.fnCheckAnswer("C", oQuestions.fnGetCurrentQuestionCounter())){
                         Toast.makeText(m1questions.this, "!!!! CORRECT ANSWER !!!!", Toast.LENGTH_SHORT).show();
                     }else{
@@ -118,7 +118,7 @@ public class m1questions extends AppCompatActivity {
                 case R.id.rbtnAnswer4:
                     Log.i(LOGTYPE, "case: Radio Button 4 Clicked");
                     Toast.makeText(m1questions.this, "Radio Button 4 Clicked", Toast.LENGTH_SHORT).show();
-
+                    oQuestions.setbArrayFirstAttempt(oQuestions.fnGetCurrentQuestionCounter());
                     if (oQuestions.fnCheckAnswer("D", oQuestions.fnGetCurrentQuestionCounter())){
                         Toast.makeText(m1questions.this, "!!!! CORRECT ANSWER !!!!", Toast.LENGTH_SHORT).show();
                     }else{
@@ -129,7 +129,8 @@ public class m1questions extends AppCompatActivity {
         }
     }
 
-    void fnRefreshUI() {
+    void fnRefreshUI(int iCounter) {
+        Log.i(LOGTYPE, "fnRefreshUI iCounter: " + String.valueOf(iCounter));
         txtQuestionM1.setText(oQuestions.getsQuestion());
         sAnswer = oQuestions.getsAnswer();
         imgQuestion.setImageResource(oQuestions.getiImgQuestion());
@@ -137,10 +138,20 @@ public class m1questions extends AppCompatActivity {
         rbtnAnswer2.setText(oQuestions.getsAnswerOption2());
         rbtnAnswer3.setText(oQuestions.getsAnswerOption3());
         rbtnAnswer4.setText(oQuestions.getsAnswerOption4());
-        rbtnAnswer1.setChecked(false);
-        rbtnAnswer2.setChecked(false);
-        rbtnAnswer3.setChecked(false);
-        rbtnAnswer4.setChecked(false);
+        rbtnAnswer1.setChecked(true);
+        rbtnAnswer2.setChecked(true);
+        rbtnAnswer3.setChecked(true);
+        rbtnAnswer4.setChecked(true);
         txtbottom.setText("Question: " + String.valueOf(oQuestions.fnGetCurrentQuestionCounter() + 1) + " of " + String.valueOf(oQuestions.fnGetMaxQuestions())  );
+        Log.i(LOGTYPE, "fnRefreshUI check boxes set");
+//        Toast.makeText(m1questions.this, "function RefreshIU getbArrayFirstAttempt: " + oQuestions.getbArrayFirstAttempt(iCounter), Toast.LENGTH_SHORT).show();
+
+        if (oQuestions.getbArrayFirstAttempt(iCounter) == false){
+            rbtnAnswer1.setEnabled(false);
+            rbtnAnswer2.setEnabled(false);
+            rbtnAnswer3.setEnabled(false);
+            rbtnAnswer4.setEnabled(false);
+        }
+
     }
 }
